@@ -59,8 +59,8 @@ app.get('*', (req, res)=>{
 
 app.use('/user', userRoute)
 
-mongoose.connect('mongodb://127.0.0.1:27017/gymmanage')
+mongoose.connect(process.env.MONGO_URL)
 .then(() => console.log('db connected succesfully'))
 .catch((err) => console.log('failed to connect', err))
 
-app.listen(3000);
+app.listen(process.env.PORT);
