@@ -24,7 +24,7 @@ function Registration() {
             password: password
         }
         
-        axios.post('http://localhost:3000/user/register', payload)
+        axios.post(process.env.REACT_APP_REGISTER_URL, payload)
         .then((res) => {
             setLoading(false);
             toast.success("Registration Successful");

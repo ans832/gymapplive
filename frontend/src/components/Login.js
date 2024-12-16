@@ -2,7 +2,7 @@
 
 
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,10 +24,10 @@ const Login = () => {
             email: email,
             password: password
         }
-
+        
         try {
           setLoading(true); // Start loading
-          const res = await axios.post('http://localhost:3000/user/login', payload);
+          const res = await axios.post(process.env.REACT_APP_LOGIN_URL, payload);
           toast.success('Login Successful');
           console.log('Login successful:', res);
           localStorage.setItem('token', res.data.token);
@@ -86,7 +86,7 @@ const Login = () => {
                   </div>
                   <a
                     className="group text-blue-400 transition-all duration-100 ease-in-out"
-                    href="#"
+                    href="/"
                   >
                     <span
                       className="bg-left-bottom bg-gradient-to-r text-sm from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out"
@@ -104,10 +104,10 @@ const Login = () => {
                 </form>
                 <div className="flex flex-col mt-4 items-center justify-center text-sm">
                   <h3 className="dark:text-gray-300">
-                    Don’t have an account?
+                    Dont have an account?
                     <a
                       className="group text-blue-400 transition-all duration-100 ease-in-out"
-                      href="#"
+                      href="/"
                     >
                       <span
                         className="bg-left-bottom bg-gradient-to-r from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out"
@@ -160,7 +160,7 @@ const Login = () => {
                     By signing in, you agree to our
                     <a
                       className="group text-blue-400 transition-all duration-100 ease-in-out"
-                      href="#"
+                      href="/"
                     >
                       <span
                         className="cursor-pointer bg-left-bottom bg-gradient-to-r from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out"
@@ -171,7 +171,7 @@ const Login = () => {
                     and
                     <a
                       className="group text-blue-400 transition-all duration-100 ease-in-out"
-                      href="#"
+                      href="/"
                     >
                       <span
                         className="cursor-pointer bg-left-bottom bg-gradient-to-r from-blue-400 to-blue-400 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out"
